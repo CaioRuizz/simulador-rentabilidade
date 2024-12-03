@@ -7,7 +7,7 @@ import requests
 import pyspark.sql.functions as sf
 from pyspark.sql import SparkSession
 
-from ..config import vars
+from config import vars
 
 def encontra_arquivo_mais_recente(diretorio: str) -> typing.Union[str, None]:
     arquivos = [f for f in os.listdir(diretorio) if os.path.isfile(os.path.join(diretorio, f))]
