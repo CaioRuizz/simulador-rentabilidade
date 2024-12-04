@@ -273,3 +273,6 @@ spark-warehouse/
 
 
 # End of https://www.toptal.com/developers/gitignore/api/python,spark
+
+# Local spark files
+spark_files/

@@ -1,15 +1,21 @@
 import zipfile
 import io
 import os
+import re
 import typing
+import pathlib
 
 import requests
+import pandas as pd
+import pyspark.sql.dataframe
 import pyspark.sql.functions as sf
-from pyspark.sql import SparkSession
 
 from config import vars
+from config import functions
 
-def encontra_arquivo_mais_recente(diretorio: str) -> typing.Union[str, None]:
+spark = vars.spark
+
+def _encontra_arquivo_mais_recente(diretorio: str) -> typing.Union[str, None]:
     arquivos = [f for f in os.listdir(diretorio) if os.path.isfile(os.path.join(diretorio, f))]
 
     if not arquivos:
@@ -25,24 +31,28 @@ def encontra_arquivo_mais_recente(diretorio: str) -> typing.Union[str, None]:
     return os.path.join(diretorio, arquivo_mais_recente)
 
 
-def baixa_arquivo(ano: int) -> None:
-    spark = SparkSession.Builder().getOrCreate()
+def baixa_historico_precos(ano: int) -> None:
+    pasta_downloads = os.path.join(vars.base_path, 'downloads')
+
+    diretorio = pathlib.Path(pasta_downloads)
+
+    diretorio.mkdir(parents=True, exist_ok=True)
 
     print(f'Baixando dados do ano {ano}')
 
     zip_file_url = f'https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_A{ano}.ZIP'
 
-    r = requests.get(zip_file_url)
+    r = requests.get(zip_file_url, verify=False)
 
     print(f'Extraindo arquivo do ano {ano}')
 
     z = zipfile.ZipFile(io.BytesIO(r.content))
 
-    z.extractall(vars.base_path)
+    z.extractall(pasta_downloads)
 
     print(f'Formatando arquivo do ano {ano}')
 
-    arquivo_cru = encontra_arquivo_mais_recente(vars.base_path)
+    arquivo_cru = _encontra_arquivo_mais_recente(pasta_downloads)
 
     if arquivo_cru is None:
         raise FileNotFoundError(f'Nenhum arquivo foi encontrado no ano {ano}')
@@ -106,7 +116,7 @@ def baixa_arquivo(ano: int) -> None:
 
     print(f'Ano {ano}: {df.count()} registros')
 
-    write_dir = os.path.join(vars.base_path, 'files', 'bronze', 'negociacao', f'Ano={ano}')
+    write_dir = os.path.join(vars.base_path, 'spark_files', 'bronze', 'negociacao', f'Ano={ano}')
 
     print(f'Gravando arquivo formatado do ano {ano} no diretório {write_dir}')
 
@@ -115,3 +125,52 @@ def baixa_arquivo(ano: int) -> None:
     print(f'Excluindo arquivo cru do ano {ano}')
 
     os.remove(arquivo_cru)
+
+
+def _buscar_id_ativo(ticker: str) -> int:
+    response = functions.navegador_get(f"https://investidor10.com.br/acoes/{ticker}/")
+
+    line = [*filter(lambda x: 'dispatch' in x, response.text.split('\n'))][0]
+
+    return int(re.findall(r'[0-9]+', line)[0])
+
+
+def baixa_quantidade_acoes(ticker: str) -> int:
+    response = functions.navegador_get(f"https://investidor10.com.br/acoes/{ticker}/")
+    linhas = response.text.split('\n')
+    line = [*filter(lambda x: 'Nº total de papeis' in x, linhas)][0]
+    indice = response.text.split('\n').index(line)
+    html = ''.join(linhas[indice:indice + 7])
+    matches = re.findall(r'[0-9\.]+', html)
+    return int(max(matches, key=len).replace('.', ''))
+
+
+def baixa_resultados_trimestrais(ticker: str) -> pyspark.sql.dataframe.DataFrame:
+    stock_id = _buscar_id_ativo(ticker)
+    
+    response = functions.navegador_get(f'https://investidor10.com.br/api/balancos/balancoresultados/chart/{stock_id}/15/quarterly/')
+    
+    data = response.json()
+    
+    # Suponha que os dados estão carregados na variável 'dados'
+    # Extraindo o cabeçalho e os valores das linhas
+    colunas = data[0]
+    valores = data[1:]
+
+    df = pd.DataFrame(valores, columns=colunas)
+    
+    df['index'] = df['#']
+    
+    del df['#']
+
+    return spark.createDataFrame(df)
+
+
+def baixa_historico_dividendos(ticker: str) -> pyspark.sql.dataframe.DataFrame:
+    response = functions.navegador_get(f"https://investidor10.com.br/acoes/{ticker}/")
+    data = response.text
+    df = pd.read_html(io.StringIO(data))[0] # type: ignore
+    df.Valor = df['Valor'] / 100000000
+    df['Imposto'] = (df['Tipo'] != 'Dividendos') * 0.15 * df['Valor']
+    df['ValorLiquido'] = df['Valor'] - df['Imposto']
+    return spark.createDataFrame(df)
