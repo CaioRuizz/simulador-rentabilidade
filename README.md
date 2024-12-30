@@ -4,6 +4,60 @@
 
 O **Simulador de Rentabilidade** tem como objetivo fornecer uma plataforma onde investidores possam criar portfólios, simular investimentos e comparar a rentabilidade histórica de ativos ou portfólios. A plataforma permitirá que o usuário personalize o período da análise, a periodicidade dos rebalanceamentos e a forma de reinvestimento dos dividendos, oferecendo ao investidor a possibilidade da realização de um **backtest** antes de utilizar seu dinheiro real (lembrando que rentabilidade passada não garante rentabilidade futura).
 
+## Features Esperadas do Sistema
+
+O **Simulador de Rentabilidade** será desenvolvido com as seguintes funcionalidades principais, que visam oferecer uma experiência completa e eficiente para os investidores:
+
+### 1. **Criação e Gerenciamento de Portfólios**
+- Permitir que o usuário crie portfólios de investimentos personalizados.
+- Oferecer a possibilidade de adicionar ou remover ativos de um portfólio.
+- Suporte à configuração do valor inicial investido.
+- Suporte à configuração do valor periódico investido, permitindo que o usuário ajuste os valores e a periodicidade.
+- Acompanhamento do desempenho de cada portfólio criado.
+
+### 2. **Simulação de Rentabilidade**
+- Realizar simulações de rentabilidade de um portfólio ao longo do tempo.
+- Permitir que o usuário escolha o período de análise (por exemplo, últimos 5 anos, 10 anos, etc.).
+- Permitir que o usuário configure a periodicidade dos rebalanceamentos do portfólio (mensal, trimestral, anual, etc.).
+- Permitir que o usuário escolha a forma de reinvestimento dos dividendos (reinvestir automaticamente no mesmo ou em outro ativo ou retirar os dividendos).
+- Exibir resultados de rentabilidade histórica (com gráficos de performance) de acordo com as configurações do usuário.
+- Oferecer métricas detalhadas de performance, como retorno absoluto, retorno anualizado, risco, volatilidade e outros indicadores financeiros.
+
+### 3. **Comparação de Rentabilidade entre Ativos e Portfólios**
+- Permitir que o usuário compare a rentabilidade de diferentes ativos ou portfólios.
+- Exibir gráficos comparativos para facilitar a visualização da performance de múltiplos investimentos.
+- Permitir que o usuário selecione diferentes ativos financeiros (ações, fundos, ETFs, etc.) para a comparação de rentabilidade.
+
+### 4. **Ajustes de Parâmetros de Simulação**
+- Permitir que o usuário defina parâmetros personalizados para cada simulação, como:
+  - Período de tempo para simulação.
+  - Frequência de rebalanceamento.
+  - Tipo de reinvestimento dos dividendos.
+  - Tipo de ativo (ações, fundos, etc.).
+  - Valor inicial investido e aportes periódicos.
+
+### 5. **Interface de Usuário Intuitiva**
+- Interface amigável e responsiva para facilitar a navegação dos usuários finais (investidores).
+- Tela de dashboard com visão geral do portfólio e das simulações.
+- Exibição de gráficos interativos para facilitar a análise de rentabilidade.
+- Filtros e ferramentas de busca para facilitar a seleção de ativos e a criação de portfólios.
+
+### 6. **Login opcional**
+- Permitir que usuários não logados simulem a rentabilidade de portfólios
+- Permitir que usuários logados armazenem portfólios diversos
+- Permitir que usuários logados comparem os portfólios armazenados
+
+### 7. **Suporte a Diversos Tipos de Ativos**
+- Suporte a diversos tipos de ativos financeiros para as simulações, incluindo:
+  - Ações
+  - ETFs (Exchange-Traded Funds)
+  - Fundos Imobiliários
+  - Criptomoedas
+  
+### 8. **Relatórios e Exportação de Dados**
+- Geração de relatórios detalhados sobre o desempenho dos portfólios e ativos.
+- Possibilidade de exportar os resultados das simulações para formatos como CSV, Excel ou PDF para análise offline.
+
 ## Estrutura do Projeto
 
 A estrutura do projeto será organizada de maneira modular, com uma divisão em camadas que visa a escalabilidade e a facilidade de manutenção. O primeiro passo do desenvolvimento será focado na implementação de um **processo ETL** (Extração, Transformação e Carga) para alimentar a base de dados com os dados financeiros necessários para a realização das simulações.
