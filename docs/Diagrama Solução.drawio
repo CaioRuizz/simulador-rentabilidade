@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.4 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.4">
+  <diagram name="Página-1" id="GmB_ipgcuZzCmFC9uFD9">
+    <mxGraphModel dx="1434" dy="835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="98B7Fcaqq5iTF7YMwLrI-5" target="98B7Fcaqq5iTF7YMwLrI-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-5" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="350" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-6" value="Frontend (Angular)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.client;" parent="1" vertex="1">
+          <mxGeometry x="160" y="350" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-8" value="Tela de login" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iScreenNameBar;fillColor2=#000000;fillColor3=#ffffff;buttonText=;fontColor=#ffffff;fontSize=10;whiteSpace=wrap;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="110" y="440" width="174" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-9" value="Tela de histórico" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iScreenNameBar;fillColor2=#000000;fillColor3=#ffffff;buttonText=;fontColor=#ffffff;fontSize=10;whiteSpace=wrap;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="110" y="480" width="174" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-10" value="Tela de porfólios e confugurações" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iScreenNameBar;fillColor2=#000000;fillColor3=#ffffff;buttonText=;fontColor=#ffffff;fontSize=10;whiteSpace=wrap;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="110" y="520" width="174" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-11" value="Tela de simulação e comparação" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iScreenNameBar;fillColor2=#000000;fillColor3=#ffffff;buttonText=;fontColor=#ffffff;fontSize=10;whiteSpace=wrap;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="110" y="560" width="174" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.995;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="98B7Fcaqq5iTF7YMwLrI-12" target="98B7Fcaqq5iTF7YMwLrI-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-12" value="Proxy (Nginx)" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=api" parent="1" vertex="1">
+          <mxGeometry x="340" y="350" width="50" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.005;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="98B7Fcaqq5iTF7YMwLrI-6" target="98B7Fcaqq5iTF7YMwLrI-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="98B7Fcaqq5iTF7YMwLrI-14" target="98B7Fcaqq5iTF7YMwLrI-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-14" value="&lt;font color=&quot;#000000&quot;&gt;Backend (Java)&lt;/font&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=default;fontSize=12;spacingTop=3;image=img/lib/ibm/infrastructure/mobile_backend.svg;" parent="1" vertex="1">
+          <mxGeometry x="500" y="350" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="98B7Fcaqq5iTF7YMwLrI-16" value="Banco de dados (MySQl)" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/database.svg;" parent="1" vertex="1">
+          <mxGeometry x="680" y="361" width="50" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="HwpJV7_IWIy6xog05Jkz-5" value="Histórico de preços" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iScreenNameBar;fillColor2=#000000;fillColor3=#ffffff;buttonText=;fontColor=#ffffff;fontSize=10;whiteSpace=wrap;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="618" y="160" width="174" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="HwpJV7_IWIy6xog05Jkz-7" value="Ativos" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iScreenNameBar;fillColor2=#000000;fillColor3=#ffffff;buttonText=;fontColor=#ffffff;fontSize=10;whiteSpace=wrap;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="618" y="130" width="174" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="HwpJV7_IWIy6xog05Jkz-8" value="Proventos" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iScreenNameBar;fillColor2=#000000;fillColor3=#ffffff;buttonText=;fontColor=#ffffff;fontSize=10;whiteSpace=wrap;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="618" y="100" width="174" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="HwpJV7_IWIy6xog05Jkz-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HwpJV7_IWIy6xog05Jkz-10" target="HwpJV7_IWIy6xog05Jkz-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HwpJV7_IWIy6xog05Jkz-10" value="Painel de controle (Jenkins)" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/SchedulerJobCollection.svg;" parent="1" vertex="1">
+          <mxGeometry x="505" y="228" width="50" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="HwpJV7_IWIy6xog05Jkz-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HwpJV7_IWIy6xog05Jkz-12" target="98B7Fcaqq5iTF7YMwLrI-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HwpJV7_IWIy6xog05Jkz-12" value="ETL (Python)" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Web_Jobs.svg;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;" parent="1" vertex="1">
+          <mxGeometry x="672" y="215.5" width="66" height="68" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
